@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface QuackBehavior {
+    + void quack()
+}
+interface FlyBehavior {
+    + void fly()
+}
+abstract class Duck {
+    - QuackBehavior quackBehavior;
+    - FlyBehavior flyBehavior;
+    + void swim()
+    + void performQuack()
+    + void performFly()
+    + abstract void display()
+}
+class RedHeadDuck extends Duck
+class RubberDuck extends Duck
+
+class Quack implements QuackBehavior
+class FlyNoWay implements FlyBehavior
+
+
+Duck --l-> QuackBehavior
+Duck -l-> FlyBehavior
+
+@enduml
